@@ -1,9 +1,39 @@
+html {
+  font-size: 62.5%;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+#__next {
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 1.8px;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 a {
@@ -13,4 +43,39 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #0076c6;
+  --accent-color: #000000d9;
+  --background-color: #f4f4f4;
+  --light-text: #ffffff;
+  --dark-text: #e3e3;
+  --padding: 100px;
+  --borderRadius: 2px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(200ch, 100%)
+    1fr;
+  grid-column-gap: 32px;
+  height: 100%;
+}
+
+.flexCenter {
+  align-content: center;
+}
+
+.wrapper > * {
+  grid-column: 2;
+}
+
+.full-bleed {
+  width: 100%;
+  height: 100%;
+  grid-column: 1 / -1;
+  padding: 0 var(--padding);
 }
