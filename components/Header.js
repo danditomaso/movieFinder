@@ -15,11 +15,20 @@ export default function Header(props) {
       <div className="wrapper flexCenter">
         <h1>{siteSettings?.meta?.siteName}</h1>
 
-        <label htmlFor="searchBar">enter movie to search for</label>
-        <span id="searchBar-hint" className="input-hint">
+        <label htmlFor="searchBar" className="visually-hidden">
+          Enter movie to search for
+        </label>
+        <span id="searchBar-hint" className="input-hint visually-hidden">
           E.g. Harry Potter
         </span>
-        <input id="searchBar" aria-describedby="searchBar-hint" name="search" type="text" />
+        <input
+          id="searchBar"
+          className={style.searchBar}
+          aria-describedby="searchBar-hint"
+          name="search"
+          type="text"
+          placeholder="E.g. Harry Potter"
+        />
 
         {/* <input type="text" className={style.searchBar} placeholder="E.g. Harry Potter"></input> */}
       </div>

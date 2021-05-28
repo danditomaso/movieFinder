@@ -6,7 +6,7 @@ export default {
   },
   meta: {
     siteName: "Movie Finder",
-    initalPageTitle: "you might like",
+    initalPageTitle: "movies you might like",
   },
   images: {
     // femaleIcon: cdnUrl("/npp/female40.svg"),

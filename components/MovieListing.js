@@ -1,12 +1,12 @@
-import { map, toUpper, compose, path, head } from "ramda";
+import { toUpper, compose, path, slice } from "ramda";
 import { MovieItem } from "@/components/ComponentMap";
 import { useGetPopularMovies } from "@/hooks/index";
+import { formatReleaseDate } from "@/utils/formatReleaseDate";
 import siteSettings from "@/config/siteSettings";
 import style from "@/styles/MovieListing.module.scss";
 
 // export async function getServerSideProps() {
-//   // const data = useGetPopularMovies();
-//   const data = [{ title: 'a special movie', id: '1234', release_date="2021-05-05", poster_path="https://placedog.net/500" }]
+//   const data = useGetPopularMovies();
 //   return { props: { data } };
 // }
 const renderPageTitle = ({ meta }) => (
@@ -15,21 +15,22 @@ const renderPageTitle = ({ meta }) => (
 
 const buildMovieListing = (data) => {
   if (data?.length) {
-    return data.map((item) => (
-      <>
-        {renderPageTitle(siteSettings)}
-        <MovieItem
-          title={item.title}
-          releaseDate={item.release_date}
-          // posterPath={`${siteSettings.app.movieImageUrl}/${item.poster_path}`}
-          posterPath={item.poster_path}
-          key={item.id}
-          showDetails={false}
-        />
-      </>
-    ));
+    return (
+      <div className={style.gridContainer}>
+        {data.map((item) => (
+          <MovieItem
+            title={item.title}
+            releaseDate={formatReleaseDate(item.release_date)}
+            // posterPath={`${siteSettings.app.movieImageUrl}/${item.poster_path}`}
+            posterPath={item.poster_path}
+            key={item.id}
+            showDetails={false}
+          />
+        ))}
+      </div>
+    );
   }
-  // return null;
+  return null;
 };
 
 export default function MovieListing(props) {
@@ -41,7 +42,67 @@ export default function MovieListing(props) {
         title: "a special movie",
         id: "1234",
         release_date: "2021-05-05",
-        poster_path: "https://placedog.net/500",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
+      },
+      {
+        title: "a special movie",
+        id: "1234",
+        release_date: "2021-05-05",
+        poster_path: "https://dummyimage.com/276x358/fff/aaa",
       },
     ],
   };
@@ -49,8 +110,9 @@ export default function MovieListing(props) {
   const MovieList = compose(buildMovieListing, getMovieItemData);
 
   return (
-    <>
+    <main className="wrapper">
+      {renderPageTitle(siteSettings)}
       <MovieList movieData={movieData} />
-    </>
+    </main>
   );
 }

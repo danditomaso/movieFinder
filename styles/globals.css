@@ -28,12 +28,12 @@ h4 {
 
 h1 {
   font-size: 4rem;
-  font-weight: 900;
+  font-weight: 600;
 }
 
 h2 {
   font-size: 2rem;
-  font-weight: 900;
+  font-weight: 400;
 }
 
 a {
@@ -47,19 +47,29 @@ a {
 
 :root {
   --primary-color: #0076c6;
-  --accent-color: #000000d9;
+  --accent-color: hsla(0, 0%, 0%, 0.85);
   --background-color: #f4f4f4;
   --light-text: #ffffff;
   --dark-text: #e3e3;
   --padding: 100px;
-  --borderRadius: 2px;
+  --borderRadius: 4px;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .wrapper {
   display: grid;
   grid-template-columns:
     1fr
-    min(200ch, 100%)
+    min(222ch, 100%)
     1fr;
   grid-column-gap: 32px;
   height: 100%;

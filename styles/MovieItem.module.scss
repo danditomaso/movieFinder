@@ -1,0 +1,14 @@
+.movieBoxImage {
+  margin: 0 auto;
+  display: block;
+  // width: 276px;
+  // height: 358px;
+}
+
+.movieDetails {
+  & p {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}
